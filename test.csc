@@ -2,13 +2,13 @@ import codec.json as json
 import curl
 
 function get_json(url)
-    var buff = new curl.buffer
-    var s = curl.make_session_os(buff.os())
+    var buff = new iostream.char_buff
+    var s = curl.make_session_os(buff.get_ostream())
     s.set_url(url)
     if !s.perform()
         throw runtime.exception("get_json: failed")
     end
-    return json.to_var(json.from_string(buff.str()))
+    return json.to_var(json.from_string(buff.get_string()))
 end
 
 var source = "http://csman.info/"

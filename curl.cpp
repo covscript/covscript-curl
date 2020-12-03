@@ -25,7 +25,6 @@
 #include <sstream>
 
 using session_t = std::shared_ptr<curl::session>;
-using buffer_t = std::shared_ptr<std::stringstream>;
 
 namespace cs_impl {
 	template<>
@@ -92,28 +91,6 @@ CNI_ROOT_NAMESPACE {
 		CNI_V(set_transmit_timeout_ms, &curl::session::set_transmit_timeout_ms)
 		CNI_V(perform,                 &curl::session::perform)
 	}
-
-	CNI_TYPE_EXT(buffer, buffer_t, std::make_shared<std::stringstream>())
-	{
-		cs::istream is(buffer_t& buff) {
-			return std::shared_ptr<std::istream>(buff.get(), [](std::istream*) {});
-		}
-
-		CNI(is)
-
-		cs::ostream os(buffer_t& buff) {
-			return std::shared_ptr<std::ostream>(buff.get(), [](std::ostream*) {});
-		}
-
-		CNI(os)
-
-		std::string str(buffer_t& buff) {
-			return std::move(buff->str());
-		}
-
-		CNI(str)
-	}
 }
 
 CNI_ENABLE_TYPE_EXT_V(session, session_t, cs::curl::session)
-CNI_ENABLE_TYPE_EXT_V(buffer, buffer_t, cs::curl::buffer)
