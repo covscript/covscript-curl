@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(covscript-imgui)
+project(covscript-curl)
 
 if (DEFINED ENV{CS_DEV_PATH})
     include_directories($ENV{CS_DEV_PATH}/include)
