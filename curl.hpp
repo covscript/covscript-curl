@@ -106,6 +106,11 @@ namespace curl {
 		{
 			curl_easy_setopt(sptr, CURLOPT_POST, value);
 		}
+		// Proxy
+		void set_proxy(const std::string &url)
+		{
+			curl_easy_setopt(sptr, CURLOPT_PROXY, url.c_str());
+		}
 		// SSL
 		void use_ssl(ssl_level level)
 		{

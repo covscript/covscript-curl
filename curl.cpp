@@ -78,6 +78,7 @@ CNI_ROOT_NAMESPACE {
 		CNI_V(set_url,                 &curl::session::set_url)
 		CNI_V(set_tcp_keep_alive,      &curl::session::set_tcp_keep_alive)
 		CNI_V(set_http_post,           &curl::session::set_http_post)
+		CNI_V(set_proxy,               &curl::session::set_proxy)
 		CNI_V(use_ssl,                 &curl::session::use_ssl)
 		CNI_V(set_ssl_verify_host,     &curl::session::set_ssl_verify_host)
 		CNI_V(set_ssl_verify_peer,     &curl::session::set_ssl_verify_peer)
