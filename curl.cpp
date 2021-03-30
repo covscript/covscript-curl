@@ -86,11 +86,15 @@ CNI_ROOT_NAMESPACE {
 		CNI_V(set_ssl_cert,            &curl::session::set_ssl_cert)
 		CNI_V(set_ssl_key,             &curl::session::set_ssl_key)
 		CNI_V(set_ssl_passwd,          &curl::session::set_ssl_passwd)
+		CNI_V(set_timeout,             &curl::session::set_timeout)
+		CNI_V(set_timeout_ms,          &curl::session::set_timeout_ms)
 		CNI_V(set_connect_timeout,     &curl::session::set_connect_timeout)
 		CNI_V(set_connect_timeout_ms,  &curl::session::set_connect_timeout_ms)
 		CNI_V(set_accept_timeout_ms,   &curl::session::set_accept_timeout_ms)
 		CNI_V(set_transmit_timeout,    &curl::session::set_transmit_timeout)
 		CNI_V(set_transmit_timeout_ms, &curl::session::set_transmit_timeout_ms)
+		CNI_V(set_low_speed_time,      &curl::session::set_low_speed_time)
+		CNI_V(set_low_speed_limit,     &curl::session::set_low_speed_limit)
 		CNI_V(perform,                 &curl::session::perform)
 	}
 }

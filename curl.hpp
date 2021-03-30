@@ -138,6 +138,14 @@ namespace curl {
 			curl_easy_setopt(sptr, CURLOPT_KEYPASSWD, path.c_str());
 		}
 		// Timeout
+		void set_timeout(long timeout)
+		{
+			curl_easy_setopt(sptr, CURLOPT_TIMEOUT, timeout);
+		}
+		void set_timeout_ms(long timeout)
+		{
+			curl_easy_setopt(sptr, CURLOPT_TIMEOUT_MS, timeout);
+		}
 		void set_connect_timeout(long timeout)
 		{
 			curl_easy_setopt(sptr, CURLOPT_CONNECTTIMEOUT, timeout);
@@ -157,6 +165,14 @@ namespace curl {
 		void set_transmit_timeout_ms(long timeout)
 		{
 			curl_easy_setopt(sptr, CURLOPT_TIMEOUT_MS, timeout);
+		}
+		void set_low_speed_time(long timeout)
+		{
+			curl_easy_setopt(sptr, CURLOPT_LOW_SPEED_TIME, timeout);
+		}
+		void set_low_speed_limit(long speed)
+		{
+			curl_easy_setopt(sptr, CURLOPT_LOW_SPEED_LIMIT, speed);
 		}
 		// APIs
 		bool perform()
