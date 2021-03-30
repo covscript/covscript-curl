@@ -99,7 +99,7 @@ namespace curl {
 			curl_easy_setopt(sptr, CURLOPT_URL, url.c_str());
 		}
 		// HTTP
-		void set_tcp_keep_alive(long probe)
+		void set_tcp_keep_alive(bool probe)
 		{
 			curl_easy_setopt(sptr, CURLOPT_TCP_KEEPALIVE, probe);
 		}
