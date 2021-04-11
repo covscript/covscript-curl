@@ -3,7 +3,7 @@
     "Name": "curl",
     "Info": "cURL Extension",
     "Author": "CovScript Organization",
-    "Version": "1.0.1",
+    "Version": "1.0.2",
     "Target": "build/imports/curl.cse",
     "Dependencies": []
 }

@@ -98,6 +98,10 @@ namespace curl {
 		{
 			curl_easy_setopt(sptr, CURLOPT_URL, url.c_str());
 		}
+		void allow_redirect(bool enable)
+		{
+			curl_easy_setopt(sptr, CURLOPT_FOLLOWLOCATION, enable);
+		}
 		// HTTP
 		void set_tcp_keep_alive(bool probe)
 		{

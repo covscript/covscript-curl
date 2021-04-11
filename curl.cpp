@@ -77,6 +77,7 @@ CNI_ROOT_NAMESPACE {
 	CNI_NAMESPACE(session)
 	{
 		CNI_V(set_url,                 &curl::session::set_url)
+		CNI_V(allow_redirect,          &curl::session::allow_redirect)
 		CNI_V(set_tcp_keep_alive,      &curl::session::set_tcp_keep_alive)
 		CNI_V(set_http_post,           &curl::session::set_http_post)
 		CNI_V(set_proxy,               &curl::session::set_proxy)
