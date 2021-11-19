@@ -80,6 +80,7 @@ CNI_ROOT_NAMESPACE {
 		CNI_V(allow_redirect,          &curl::session::allow_redirect)
 		CNI_V(set_tcp_keep_alive,      &curl::session::set_tcp_keep_alive)
 		CNI_V(set_http_post,           &curl::session::set_http_post)
+		CNI_V(set_http_post_fields,    &curl::session::set_http_post_fields)
 		CNI_V(set_proxy,               &curl::session::set_proxy)
 		CNI_V(use_ssl,                 &curl::session::use_ssl)
 		CNI_V(set_ssl_verify_host,     &curl::session::set_ssl_verify_host)

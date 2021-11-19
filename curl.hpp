@@ -111,6 +111,11 @@ namespace curl {
 		{
 			curl_easy_setopt(sptr, CURLOPT_POST, value);
 		}
+		void set_http_post_fields(const std::string &data)
+		{
+			curl_easy_setopt(sptr, CURLOPT_POSTFIELDSIZE, data.size());
+ 			curl_easy_setopt(sptr, CURLOPT_POSTFIELDS, data.c_str());
+		}
 		// Proxy
 		void set_proxy(const std::string &url)
 		{
