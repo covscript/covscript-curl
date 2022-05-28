@@ -37,7 +37,7 @@ target_link_libraries(curl_ext covscript curl)
 
 if (WIN32)
     target_compile_definitions(curl_ext PRIVATE CURL_STATICLIB)
-    target_link_libraries(curl_ext wldap32 crypt32 nghttp2 ssh2 z gsasl bcrypt ssl crypto idn2 brotlidec-static brotlicommon-static ws2_32)
+    target_link_libraries(curl_ext wldap32 crypt32 nghttp2 ssh2 z gsasl bcrypt ssl crypto idn2 brotlidec-static brotlicommon-static nghttp3 ngtcp2 ngtcp2_crypto_openssl ws2_32)
 endif ()
 
 set_target_properties(curl_ext PROPERTIES OUTPUT_NAME curl)
