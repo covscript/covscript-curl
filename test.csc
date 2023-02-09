@@ -11,31 +11,11 @@ function get_json(url)
     return json.to_var(json.from_string(buff.get_string()))
 end
 
-var source = "http://csman.info/"
+var source = "http://mirrors.covariant.cn/cspkg/"
 
-var csman_info = get_json(source + "csman.json")
-system.out.println("CSMAN Source Version: " + csman_info.Version)
-system.out.println("CSMAN Source BaseUrl: " + csman_info.BaseUrl)
-var info_generic = get_json(csman_info.BaseUrl + "Generic.json")
-var info_platform = null
-if system.is_platform_windows()
-    info_platform = get_json(csman_info.BaseUrl + "Win32_MinGW-w64_AMD64.json")
+var cspkg_info = get_json(source + "index.json")
+system.out.println("CSPKG Source BaseUrl: " + cspkg_info.base_url)
+var universal_info = get_json(cspkg_info.base_url + cspkg_info.universal)
+foreach it in universal_info
+    system.out.println(it.first)
 end
-if system.is_platform_linux()
-    info_platform = get_json(csman_info.BaseUrl + "Linux_GCC_AMD64.json")
-end
-if system.is_platform_darwin()
-    info_platform = get_json(csman_info.BaseUrl + "macOS_clang_AMD64.json")
-end
-foreach it in info_platform
-    if info_generic.exist(it.first)
-        foreach pac in it.second
-            info_generic[it.first].insert(pac.first, pac.second)
-        end
-    else
-        info_generic.insert(it.first, it.second)
-    end
-end
-var out = iostream.fstream("./sources.json", iostream.openmode.out)
-out.print(json.to_string(json.from_var(info_generic)))
-system.out.println("CSMAN Source Updated: " + runtime.get_current_dir() + system.path.separator + "source.json")
