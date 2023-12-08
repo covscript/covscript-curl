@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4)
+cmake_minimum_required(VERSION 3.10)
 
 project(covscript-curl)
 
@@ -37,7 +37,7 @@ target_link_libraries(curl_ext covscript curl)
 
 if (WIN32)
     target_compile_definitions(curl_ext PRIVATE CURL_STATICLIB)
-    target_link_libraries(curl_ext crypt32 wldap32 nghttp2 ssh2 z gsasl bcrypt ssl crypto brotlidec brotlicommon zstd nghttp3 ngtcp2 ngtcp2_crypto_openssl ws2_32)
+    target_link_libraries(curl_ext crypt32 wldap32 nghttp2 ssh2 z bcrypt ssl crypto brotlidec brotlicommon zstd nghttp3 ngtcp2 ngtcp2_crypto_quictls ws2_32)
 endif ()
 
 set_target_properties(curl_ext PROPERTIES OUTPUT_NAME curl)
